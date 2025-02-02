@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Catalog.Infrastructure.Repositories
 {
-    public class ProductRepository : IProductRepository, IBrandRepository, ITypesRepository
+    public class ProductRepository : IProductRepository, IBrandRepository, IProductTypeRepository
     {
         public ICatalogContext _context { get; }
 
@@ -22,7 +22,7 @@ namespace Catalog.Infrastructure.Repositories
         async Task<Product> IProductRepository.GetProduct(string id)
         {
             return await _context
-                .Products.Find(x=>x.Id == id)
+                .Products.Find(x => x.Id == id)
                 .FirstOrDefaultAsync();
         }
 
@@ -38,7 +38,7 @@ namespace Catalog.Infrastructure.Repositories
             return await _context
                .Products
                .Find(x => x.Brands.Name.ToLower() == brandName.ToLower())
-               .ToListAsync(); 
+               .ToListAsync();
         }
 
         async Task<IEnumerable<Product>> IProductRepository.GetProductsByName(string name)
@@ -57,16 +57,16 @@ namespace Catalog.Infrastructure.Repositories
         }
         async Task<bool> IProductRepository.DeleteProduct(string id)
         {
-            var deletedProduct=await _context
+            var deletedProduct = await _context
                 .Products
-                .DeleteOneAsync(x=>x.Id==id);
+                .DeleteOneAsync(x => x.Id == id);
             return deletedProduct.IsAcknowledged && deletedProduct.DeletedCount > 0;
         }
         async Task<bool> IProductRepository.UpdateProduct(Product product)
         {
-            var updatedProduct=await _context
+            var updatedProduct = await _context
                 .Products
-                .ReplaceOneAsync(x=>x.Id==product.Id,product);
+                .ReplaceOneAsync(x => x.Id == product.Id, product);
             return updatedProduct.IsAcknowledged && updatedProduct.ModifiedCount > 0;
         }
 
@@ -77,7 +77,7 @@ namespace Catalog.Infrastructure.Repositories
                 .Find(x => true).ToListAsync();
         }
 
-        async Task<IEnumerable<ProductType>> ITypesRepository.GetAllTypes()
+        async Task<IEnumerable<ProductType>> IProductTypeRepository.GetAllTypes()
         {
             return await _context
                 .Types

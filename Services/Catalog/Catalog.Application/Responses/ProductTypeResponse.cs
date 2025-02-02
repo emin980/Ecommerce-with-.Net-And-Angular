@@ -1,7 +1,6 @@
 ﻿namespace Catalog.Application.Responses
 {
-    public class BrandResponse : BaseResponse
+    public class ProductTypeResponse : BaseResponse
     {
-
     }
 }

@@ -7,11 +7,11 @@ using MediatR;
 
 namespace Catalog.Application.Handlers
 {
-    public class GetAllBrandsHandler : IRequestHandler<GetAllBrandsQuery, IList<BrandResponse>>
+    public class GetAllBrandsQueryHandler : IRequestHandler<GetAllBrandsQuery, IList<BrandResponse>>
     {
         private readonly IBrandRepository _brandRepository;
 
-        public GetAllBrandsHandler(IBrandRepository brandRepository)
+        public GetAllBrandsQueryHandler(IBrandRepository brandRepository)
         {
             _brandRepository = brandRepository;
         }
@@ -19,7 +19,7 @@ namespace Catalog.Application.Handlers
         {
             var brandList = await _brandRepository.GetAllBrands();
 
-            var brandResponseList= ProductMapper.Mapper.Map<IList<ProductBrand>,IList<BrandResponse>>(brandList.ToList());
+            var brandResponseList = ProductMapper.Mapper.Map<IList<ProductBrand>, IList<BrandResponse>>(brandList.ToList());
 
             return brandResponseList;
         }
