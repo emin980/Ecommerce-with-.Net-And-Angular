@@ -1,10 +1,9 @@
-﻿using Catalog.Application.Responses;
-using Catalog.Core.Entities;
+﻿using Catalog.Core.Entities;
 using MediatR;
 
 namespace Catalog.Application.Commands
 {
-    public class CreateProductCommand : BaseCommand, IRequest<ProductResponse>
+    public class UpdateProductCommand : BaseCommand, IRequest<bool>
     {
         public string Summary { get; set; }
         public string Description { get; set; }

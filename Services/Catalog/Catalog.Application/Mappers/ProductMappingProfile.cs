@@ -12,7 +12,7 @@ namespace Catalog.Application.Mappers
             CreateMap<ProductBrand, BrandResponse>().ReverseMap();
             CreateMap<Product, ProductResponse>().ReverseMap();
             CreateMap<ProductType, ProductTypeResponse>().ReverseMap();
-            CreateMap<Product,CreateProductCommand>().ReverseMap();
+            CreateMap<Product, CreateProductCommand>().ReverseMap();
         }
     }
 }

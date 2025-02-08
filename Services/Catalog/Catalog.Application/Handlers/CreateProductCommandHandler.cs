@@ -4,11 +4,6 @@ using Catalog.Application.Responses;
 using Catalog.Core.Entities;
 using Catalog.Core.Repositories;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Catalog.Application.Handlers
 {
@@ -27,9 +22,9 @@ namespace Catalog.Application.Handlers
             {
                 throw new ApplicationException("There is issue with mapping while creating new product");
             }
-            var newProduct=await _productRepository.CreateProduct(productEntity);
+            var newProduct = await _productRepository.CreateProduct(productEntity);
 
-            var productResponse=ProductMapper.Mapper.Map<ProductResponse>(newProduct);
+            var productResponse = ProductMapper.Mapper.Map<ProductResponse>(newProduct);
             return productResponse;
         }
     }

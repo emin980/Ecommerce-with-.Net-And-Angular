@@ -1,6 +1,4 @@
-﻿using MongoDB.Bson.Serialization.Attributes;
-
-namespace Catalog.Application.Commands
+﻿namespace Catalog.Application.Commands
 {
     public class BaseCommand
     {
