@@ -32,7 +32,7 @@ namespace Catalog.API.Controllers
         [Route("[action]/{productName}", Name = "GetProductByName")]
         [ProducesResponseType(typeof(IList<ProductResponse>), (int)HttpStatusCode.OK)]
         [ProducesResponseType((int)HttpStatusCode.NotFound)]
-        public async Task<ActionResult<ProductResponse>> GetProductByName(string productName)
+        public async Task<ActionResult<IList<ProductResponse>>> GetProductByName(string productName)
         {
             var query = new GetProductByNameQuery(productName);
 
@@ -44,7 +44,7 @@ namespace Catalog.API.Controllers
         [Route("GetAllProducts")]
         [ProducesResponseType(typeof(IList<ProductResponse>), (int)HttpStatusCode.OK)]
         [ProducesResponseType((int)HttpStatusCode.NotFound)]
-        public async Task<ActionResult<ProductResponse>> GetAllProducts()
+        public async Task<ActionResult<IList<ProductResponse>>> GetAllProducts()
         {
             var query = new GetAllProductsQuery();
 
@@ -56,7 +56,7 @@ namespace Catalog.API.Controllers
         [Route("GetAllBrands")]
         [ProducesResponseType(typeof(IList<BrandResponse>), (int)HttpStatusCode.OK)]
         [ProducesResponseType((int)HttpStatusCode.NotFound)]
-        public async Task<ActionResult<ProductResponse>> GetAllBrands()
+        public async Task<ActionResult<IList<BrandResponse>>> GetAllBrands()
         {
             var query = new GetAllBrandsQuery();
 
@@ -68,7 +68,7 @@ namespace Catalog.API.Controllers
         [Route("GetAllProductTypes")]
         [ProducesResponseType(typeof(IList<ProductTypeResponse>), (int)HttpStatusCode.OK)]
         [ProducesResponseType((int)HttpStatusCode.NotFound)]
-        public async Task<ActionResult<ProductResponse>> GetAllProductTypes()
+        public async Task<ActionResult<IList<ProductTypeResponse>>> GetAllProductTypes()
         {
             var query = new GetAllProductTypesQuery();
 
@@ -80,7 +80,7 @@ namespace Catalog.API.Controllers
         [Route("[action]/{productName}", Name = "GetProductsByBrand")]
         [ProducesResponseType(typeof(IList<ProductResponse>), (int)HttpStatusCode.OK)]
         [ProducesResponseType((int)HttpStatusCode.NotFound)]
-        public async Task<ActionResult<ProductResponse>> GetProductsByBrand(string brandName)
+        public async Task<ActionResult<IList<ProductResponse>>> GetProductsByBrand(string brandName)
         {
             var query = new GetProductsByBrandQuery(brandName);
 

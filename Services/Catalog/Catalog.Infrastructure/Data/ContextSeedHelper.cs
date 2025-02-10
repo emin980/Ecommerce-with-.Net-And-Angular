@@ -7,7 +7,7 @@ namespace Catalog.Infrastructure.Data
     {
         public static void InsertSeedData(IMongoCollection<T> collection, string jsonFileNameWithExtension)
         {
-            string path = Path.Combine("Data", "SeedData", jsonFileNameWithExtension);
+            string path = Path.Combine("D:\\Udemy Courses\\Ecommerce-with-.Net-And-Angular\\Services\\Catalog\\Catalog.Infrastructure\\Data\\SeedData", jsonFileNameWithExtension);
             var collectionJsonData = File.ReadAllText(path);
             var collectionJsonDataList = JsonSerializer.Deserialize<List<T>>(collectionJsonData);
             if (collectionJsonDataList != null && collectionJsonDataList.Count >= 1)
